@@ -1,6 +1,6 @@
 -----
 
-# ResolvFlow
+# ResolveNOW
 
 ResolvFlow is a comprehensive online complaint management system designed to streamline the process of submitting, tracking, and resolving customer issues efficiently. It provides an intuitive platform for users to log complaints and for agents and administrators to manage them through various stages, ensuring timely resolution and improved customer satisfaction.
 
