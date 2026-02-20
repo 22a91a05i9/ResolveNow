@@ -184,7 +184,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://www.g
 
 For any questions or inquiries, please contact:
 
-  * **Your Name VENKATREDDY**
-  * **Your Email venkatreddy30301@gmail.com**
+  * **Your Name Jyoshnavi**
+  * **Your Email josh8jyoshnaviclk@gmail.com**
 
 -----
