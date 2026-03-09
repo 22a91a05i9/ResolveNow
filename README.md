@@ -1,190 +1,200 @@
------
+# ResolveNow: Your Platform for Online Complaints
 
-# ResolveNOW
+**Category**: Full Stack Development
 
-ResolvFlow is a comprehensive online complaint management system designed to streamline the process of submitting, tracking, and resolving customer issues efficiently. It provides an intuitive platform for users to log complaints and for agents and administrators to manage them through various stages, ensuring timely resolution and improved customer satisfaction.
+**Skills Required**: HTML, CSS, Javascript, Bootstrap, React.js, Node.js, MongoDB
 
------
+## Overview
+- Submit complaints with attachments.
+- Track progress in My Complaints.
+- Chat with assigned agents in real time.
+- Admin assigns to agents; agents update status.
+- Secure auth with JWT; real‑time via Socket.io.
 
+Video Demonstration: https://drive.google.com/file/d/10yqFsdyAKl3gMGI7CztD_cf910q9f6SS/view?usp=sharing
 ## Features
+- Customer: submit, track, chat, give feedback.
+- Agent: view assigned items, chat, update status.
+- Admin: manage users/agents, assign complaints.
 
-### For Customers (Users)
+## Roles 
+- Customer: register/login, submit complaint, track status, chat, give feedback.
+- Agent: handle assigned complaints, chat with customers, update status.
+- Admin: assign complaints, manage users and agents.
 
-  * **Complaint Submission:** Easily submit new complaints with detailed descriptions, product information, and contact details.
-  * **Attachment Uploads:** Attach relevant files (e.g., images, documents) to provide more context for the complaint.
-  * **Real-time Status Tracking:** Monitor the live status of submitted complaints (e.g., Registered, In Progress, Resolved).
-  * **Conversation History:** View and participate in a chat-like conversation thread with assigned agents for ongoing communication.
-  * **Feedback Submission:** Provide ratings and comments on resolved complaints to help improve service quality.
+## TECHNICAL ARCHITECTURE
 
-### For Agents
-
-  * **Complaint Dashboard:** View all assigned complaints and their current statuses.
-  * **Status Management:** Update complaint statuses (e.g., In Progress, Resolved, Reopened, Rejected).
-  * **Resolution Details:** Provide detailed explanations and resolution dates when marking a complaint as resolved.
-  * **Chat with Customers:** Communicate directly with customers within the complaint thread.
-  * **Attachment Access:** View attachments uploaded by customers.
-
-### For Administrators
-
-  * **Comprehensive Oversight:** View all complaints across the system, regardless of assignment.
-  * **Agent Assignment:** Assign complaints to specific agents for resolution.
-  * **User Management:** Manage user accounts and roles (customer, agent, admin).
-  * **Performance Monitoring:** Gain insights into complaint resolution times and agent performance.
-
------
-
-## Technologies Used
+The technical architecture of **ResolveNow** follows a client-server model. The frontend acts as the client, built with **React.js** and **Vite**, while the backend serves as the API server using **Node.js** and **Express.js**.
 
 ### Frontend
-
-  * **React.js:** A JavaScript library for building user interfaces.
-  * **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
-  * **React Router DOM:** For declarative routing in React applications.
-  * **Axios:** A promise-based HTTP client for making API requests.
-  * **React Toastify:** For easy-to-use notification messages.
-  * **Socket.IO Client:** For real-time, bidirectional communication.
+- **React.js**: For building a dynamic and responsive user interface.
+- **Vite**: Modern build tool for faster development.
+- **Axios**: For handling RESTful API requests to the backend.
+- **Socket.io-Client**: Enables real-time communication for the built-in messaging system.
+- **Material UI & Bootstrap**: Used for creating a consistent, modern, and accessible UI.
 
 ### Backend
+- **Node.js & Express.js**: Handles server-side logic, routing, and middleware.
+- **Socket.io**: Powers real-time updates and customer-agent chat.
+- **JWT (JSON Web Tokens)**: Secure user authentication and authorization.
+- **Multer**: Middleware for handling multi-part form data and file uploads (attachments).
+- **Mongoose**: Provides a schema-based solution to model application data.
 
-  * **Node.js:** A JavaScript runtime for server-side development.
-  * **Express.js:** A fast, unopinionated, minimalist web framework for Node.js.
-  * **MongoDB:** A NoSQL database for flexible data storage.
-  * **Mongoose:** An ODM (Object Data Modeling) library for MongoDB and Node.js.
-  * **Socket.IO:** Enables real-time, event-based communication between client and server.
-  * **CORS:** Middleware to enable Cross-Origin Resource Sharing.
-  * **Express-Session & Connect-MongoDB-Session:** For managing and persisting user sessions in MongoDB.
-  * **Cookie-parser:** Middleware for parsing cookies.
-  * **Dotenv:** To load environment variables from a `.env` file.
+### Database
+- **MongoDB**: NoSQL database for flexible and scalable data storage. Stores user profiles, complaint details, chat history, and feedback.
 
------
+## PROJECT STRUCTURE
 
-## Getting Started
+The project is organized into two main directories: `backend` and `frontend`, located within the `Project Files` folder.
 
-Follow these instructions to get a copy of ResolvFlow up and running on your local machine for development and testing purposes.
+### Backend (`Project Files/backend`)
+- **config.js**: Configuration for database connection and environment variables.
+- **Schema.js**: All Mongoose schemas and models (User, Complaint, Assigned, Message, Feedback) in one file.
+- **index.js**: Express server entry; contains all routes, auth/error middleware, and Socket.io setup.
+- **uploads/**: Storage for complaint attachments and chat images.
 
-### Prerequisites
+### Frontend (`Project Files/frontend`)
+- **src/**:
+  - **components/**: Reusable UI components for dashboards, forms, and chat.
+  - **App.jsx**: The main component managing application routing.
+  - **main.jsx**: The entry point for the React application.
+  - **index.css**: Global styles and shared layout definitions.
+- **public/**: Static assets like logos and icons.
+- **vite.config.js**: Configuration for the Vite build tool.
 
-Before you begin, ensure you have the following installed:
+## Quick Start
+```bash
+git clone https://github.com/22a91a05i9/ResolveNow.git
+cd ResolveNow
 
-  * **Node.js** (LTS version recommended)
-  * **npm** (Node Package Manager, usually comes with Node.js)
-  * **MongoDB** (running locally or access to a cloud-hosted instance like MongoDB Atlas)
+# Backend
+cd "backend" && npm install && npm start
 
-### Installation
+# Frontend
+cd "../frontend" && npm install && npm start
+```
+Backend: http://localhost:5000  
+Frontend (Vite): http://localhost:5173
 
-1.  **Clone the repository:**
+## GETTING STARTED
 
-    ```bash
-    git clone <repository_url>
-    cd ResolvFlow
-    ```
+Follow these steps to run the **ResolveNow** project on your local machine:
 
-2.  **Backend Setup:**
+### 1. Clone the Repository
+Open your terminal and execute:
+```bash
+git clone https://github.com/22a91a05i9/ResolveNow.git
+```
 
-    Navigate to the `backend` directory (or wherever your backend code resides).
+### 2. Install Dependencies
+Navigate into the project directory and install dependencies for both frontend and backend:
+```bash
+# Navigate to the project root
+cd ResolveNow
 
-    ```bash
-    cd backend
-    ```
+# Install backend dependencies
+cd "backend"
+npm install
 
-    Install backend dependencies:
+# Install frontend dependencies
+cd "../frontend"
+npm install
+```
 
-    ```bash
-    npm install
-    ```
+### 3. Start the Application
+You will need two terminal windows:
 
-    Create a `.env` file in the `backend` directory and add your environment variables:
+**Terminal 1 (Backend):**
+```bash
+cd "backend"
+npm start
+```
 
-    ```env
-    PORT=5000
-    MONGO_URL="mongodb://localhost:27017/resolvflow_db" # Or your MongoDB Atlas URI
-    SESSION_SECRET="your_very_secret_key_here" # Generate a strong, random string
-    JWT_SECRET="another_very_secret_key" # For user authentication tokens
-    CLIENT_ORIGIN="http://localhost:5173" # Your frontend URL
-    ```
+**Terminal 2 (Frontend):**
+```bash
+cd "frontend"
+npm start
+```
+The application will be accessible at [http://localhost:5173](http://localhost:5173) (default Vite port).
 
-    Start the backend server:
+## Environment
+Create `backend/.env`:
+```
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/resolvenow
+```
 
-    ```bash
-    npm start
-    ```
+## API
+Base URL: http://localhost:5000  
+Auth header (where required): Authorization: Bearer <token>
 
-    The backend server will typically run on `http://localhost:5000` (or your specified PORT).
+- Auth
+  - POST /api/auth/register — create user (name, email, password, phone, userType)
+  - POST /api/auth/login — returns { token, user }
+  - POST /api/auth/logout — invalidate client session
+  - GET  /api/auth/agents — list agents with activeAssignments
 
-3.  **Frontend Setup:**
+- Complaints
+  - POST /api/complaints — create complaint (multipart/form-data)
+    - fields: userId, name, address, city, state, pincode, comment
+    - files: attachments[]; optional attachmentNames[]
+  - GET  /api/complaints — list all (populates userId, assignment)
+  - GET  /api/complaints/:id — get by id
+  - PUT  /api/complaints/:id — update complaint
+  - DELETE /api/complaints/:id — remove complaint
 
-    Navigate to the `frontend` directory (or wherever your frontend code resides).
+- Assignments
+  - POST /api/assigned — assign complaint to agent (complaintId, agentId, agentName)
+  - GET  /api/assigned — list all assignments
+  - GET  /api/assigned/agent/:agentId — list assignments for an agent (populated)
 
-    ```bash
-    cd frontend
-    ```
+- Messages
+  - POST /api/messages — send message (multipart/form-data: attachments[])
+    - body: complaintId, name, message
+  - GET  /api/messages/:complaintId — fetch conversation (sorted by sentAt)
+  - PUT  /api/messages/read/:complaintId — mark as read (for messages not sent by current user)
+  - GET  /api/messages/unread/counts — unread counts per complaint
 
-    Install frontend dependencies:
+- Feedback
+  - POST /api/feedback — create feedback (complaintId, rating, comment)
+  - GET  /api/feedback/complaint/:complaintId — fetch single complaint feedback
+  - GET  /api/feedback/agent/:agentId — feedbacks for an agent
 
-    ```bash
-    npm install
-    ```
+- Users
+  - GET  /api/users/profile — current user profile
+  - PUT  /api/users/profile — update profile (name, email, phone)
+  - GET  /api/users — list users (admin only)
 
-    Create a `.env` file in the `frontend` directory and add your environment variables:
+- Static uploads
+  - GET  /uploads/<filename> — serves uploaded files
 
-    ```env
-    VITE_SERVER_URL="http://localhost:3000" # Your backend URL
-    ```
+## How It Works
+- Customer submits a complaint → Admin assigns to an agent → Agent updates status → Customer chats and gives feedback.
 
-    Start the frontend development server:
+## Screenshots
 
-    ```bash
-    npm run dev
-    ```
 
-    The frontend application will typically run on `http://localhost:5173`.
+- Landing Page  
+    ![Landing](https://github.com/user-attachments/assets/7939aa36-4f5c-4138-9728-d04b3b7f714d)
+  
+- Registration  
+    ![Registration](https://github.com/user-attachments/assets/b240a6b1-e909-4cfb-8b6a-ab2cf0291d20)
+  
+- Login  
+    ![Login](https://github.com/user-attachments/assets/ad5dbbb6-926f-4f9a-a8fc-f699ec3c34d9)
+  
+- Submit Complaint  
+   <img width="1902" height="866" alt="image" src="https://github.com/user-attachments/assets/1fa71ba7-e835-4053-83c0-ebbc8d2f26b1" />
+ 
+- My Complaints  
+   <img width="1915" height="845" alt="image" src="https://github.com/user-attachments/assets/d2a3527e-1aa4-4001-ae6f-838592e2f7c2" />
 
------
+- Chat With Agent  
+    <img width="1919" height="826" alt="image" src="https://github.com/user-attachments/assets/3f1b2d38-c1be-4ef7-bf7f-2bcfdd3d333e" />
+  
+- Admin Dashboard  
+    ![Admin Dashboard](https://github.com/user-attachments/assets/b5edb65e-5f30-4089-8905-b76fa8f883f3)
+  
+- Agent Dashboard  
+    ![Agent Dashboard](https://github.com/user-attachments/assets/b9d45c5c-64f3-4931-af1e-3e28008ad5e7)
 
-## Usage
-
-1.  **Register as a User:**
-
-      * Open your browser and navigate to `http://localhost:5173`.
-      * Sign up for a new account. By default, new accounts are created as customers.
-
-2.  **Submit a Complaint:**
-
-      * Log in as a customer.
-      * Navigate to the "Submit Complaint" section and fill out the form.
-
-3.  **Agent/Admin Access:**
-
-      * To access agent or admin functionalities, you'll need to manually change a user's role in your MongoDB database or implement an admin interface for role management.
-      * Log in with an account that has an `agent` or `admin` role.
-      * Explore the dashboard to manage complaints, change statuses, and communicate with customers.
-
------
-
-## Contributing
-
-We welcome contributions to ResolvFlow\! If you'd like to contribute, please follow these steps:
-
-1.  Fork the repository.
-2.  Create a new branch (`git checkout -b feature/your-feature-name`).
-3.  Make your changes.
-4.  Commit your changes (`git commit -m 'Add new feature'`).
-5.  Push to the branch (`git push origin feature/your-feature-name`).
-6.  Open a Pull Request.
-
------
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.
-
------
-
-## Contact
-
-For any questions or inquiries, please contact:
-
-  * **Your Name Jyoshnavi**
-  * **Your Email josh8jyoshnaviclk@gmail.com**
-
------
